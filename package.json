@@ -11,5 +11,10 @@
     "url": "https://github/joshgrylls/assignment-2"
   },
   "author": "Joshua Grylls",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@angular/cli": "^6.2.3",
+    "mongodb": "^3.1.6",
+    "socket.io": "^2.1.1"
+  }
 }
