@@ -1,0 +1,15 @@
+{
+  "name": "chat-system",
+  "version": "1.0.0",
+  "description": "Assignment 2 of 2811ICT",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github/joshgrylls/assignment-2"
+  },
+  "author": "Joshua Grylls",
+  "license": "ISC"
+}
