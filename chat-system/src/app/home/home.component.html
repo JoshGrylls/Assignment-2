@@ -1,24 +1,10 @@
-<form action="">
+<form>
   <div>
-    <h2>Enter Username: </h2>
-    <input type="text" [(ngModel)]="usrName" name="usrName">
-    <h2>Enter Password: </h2>
-    <input type="text" [(ngModel)]="usrPsw" name="usrPsw">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" [(ngModel)]="usrName" name="usrName" id="usrName">
+    <label for="psw"><b>Password</b></label>
+    <input type="text" [(ngModel)]="usrPsw" name="usrPsw" id="usrPsw">
     <button type="button" (click)="onSubmit()">Enter Chat</button>
   </div>
 </form>
 <div id="loginResults"></div>
-
-<script>
-    $("form").submit(function(e){
-      e.preventDefault();
-      var data = $("form").serialize();
-      $.post("/users", data, function(data){
-        if(data.ok == true) {
-          location.href = "/account";
-        } else {
-          $("#loginResults").html('Invalid!');
-        }
-      });
-    });
-    </script>

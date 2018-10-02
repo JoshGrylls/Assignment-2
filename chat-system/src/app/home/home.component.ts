@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+declare var $: any;
 
 @Component({
   selector: 'app-home',
@@ -11,14 +15,26 @@ export class HomeComponent implements OnInit {
   usrName: string;
   usrPsw: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
+    console.log('loading...');
+    var tryUser = {
+      tryName: this.usrName,
+      tryPassword: this.usrPsw
+    };
     //sessionStorage.setItem("loggedIn", "true");
-    //sessionStorage.setItem("currentUser", JSON.stringify(currentUser));
+    $.post("/users", tryUser, (tryUser) => {
+      if(tryUser.ok == true) {
+        sessionStorage.setItem("currentUser", JSON.stringify({username:this.usrName,password:this.usrPsw}));
+        this.router.navigate(['/account']);;
+      } else {
+        $("#loginResults").html('Invalid!');
+      }
+    });
   }
 
 }

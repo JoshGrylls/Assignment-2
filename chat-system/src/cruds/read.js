@@ -1,17 +1,16 @@
 module.exports = function(db, app) {
-  app.get('/users', (req, res) => {
-    var theUser = {
-      username: res.body.usrName,
-      password: res.body.usrPsw
-    }
+  var foundUser = false;
+  app.post('/users', (req, res) => {
     db.collection("users").find().toArray((err, results) => {
+      console.log(results);
       for(var i = 0; i < results.length; i++) {
-        if(results[i].username === theUser.username && results[i].password === theUser.password) {
+        if(results[i].username === req.body.tryName && results[i].password === req.body.tryPassword) {
+          console.log({ok:true});
           res.send({ok:true});
-        } else {
-          res.send({ok:false});
+          return;
         }
       }
+      res.send({ok:false});
     });
   });
 }
