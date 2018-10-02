@@ -1,0 +1,9 @@
+<form>
+  <div>
+    <h2>Enter Username: </h2>
+    <input type="text" [(ngModel)]="usrName" name="usrName">
+    <h2>Enter Password: </h2>
+    <input type="text" [(ngModel)]="usrPsw" name="usrPsw">
+    <button type="button" [routerLink]="['/chatroom']" (click)="onSubmit()">Enter Chat</button>
+  </div>
+</form>

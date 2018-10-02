@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { ChatroomComponent } from './chatroom/chatroom.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
-  {path:'chatroom', component: ChatroomComponent}
+  {path:'chatroom', component: ChatroomComponent},
 ];
 
 @NgModule({
@@ -13,4 +15,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
