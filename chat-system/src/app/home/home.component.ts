@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  loggedIn: boolean;
+  loggedOut: boolean;
   usrName: string;
   usrPsw: string;
 
@@ -16,7 +17,8 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit() {
-    sessionStorage.setItem("username", this.usrName);
+    //sessionStorage.setItem("loggedIn", "true");
+    //sessionStorage.setItem("currentUser", JSON.stringify(currentUser));
   }
 
 }

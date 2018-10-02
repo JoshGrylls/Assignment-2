@@ -11,16 +11,19 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 export class ChatroomComponent implements OnInit {
   username:string;
+  currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
   messages=[];
   message;
   connection;
+
   constructor(private sockServ: SocketService, private router: Router) { }
 
   ngOnInit() {
     //We have to validate the username. Subscribe to chat service. add a message
     //to the message array each time you are pushed a message from the server
-    this.username = sessionStorage.getItem('username');
+    this.username = this.currentUser["username"];
     console.log("Session started for: " + this.username);
+
     this.connection = this.sockServ.getMessage().subscribe(message =>{
       //"message" is value of input field.
       this.messages.push(message);
@@ -45,5 +48,9 @@ export class ChatroomComponent implements OnInit {
     sessionStorage.clear();
     console.log('session cleared');
     this.router.navigateByUrl('');
+  }
+
+  account(){
+    this.router.navigateByUrl('/account');
   }
 }

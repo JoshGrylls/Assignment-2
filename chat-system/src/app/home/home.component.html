@@ -1,9 +1,24 @@
-<form>
+<form action="">
   <div>
     <h2>Enter Username: </h2>
     <input type="text" [(ngModel)]="usrName" name="usrName">
     <h2>Enter Password: </h2>
     <input type="text" [(ngModel)]="usrPsw" name="usrPsw">
-    <button type="button" [routerLink]="['/chatroom']" (click)="onSubmit()">Enter Chat</button>
+    <button type="button" (click)="onSubmit()">Enter Chat</button>
   </div>
 </form>
+<div id="loginResults"></div>
+
+<script>
+    $("form").submit(function(e){
+      e.preventDefault();
+      var data = $("form").serialize();
+      $.post("/users", data, function(data){
+        if(data.ok == true) {
+          location.href = "/account";
+        } else {
+          $("#loginResults").html('Invalid!');
+        }
+      });
+    });
+    </script>

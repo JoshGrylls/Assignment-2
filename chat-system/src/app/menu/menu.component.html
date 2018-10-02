@@ -1,0 +1,24 @@
+<nav>
+  <ul>
+    <li *ngIf="!loggedIn; else LoggedOut" > <a routerLink="login">Login</a> </li>
+    <ng-template #loggedOut>
+    <li> <a (click)="logout()">Logout</a> </li>
+  </ng-template>
+    <li> <a routerLink="account">Account</a> </li>
+    <li> <a routerLink="chatroom">Chatroom</a> </li>
+    <li> <a href="#">Groups</a>
+      <ul class="hiddenChannels">
+        <li> <a routerLink="channel1">- Group 1</a> </li>
+        <li> <a routerLink="channel2">- Group 2</a> </li>
+        <li> <a routerLink="channel3">- Group 3</a> </li>
+      </ul>
+    </li>
+    <li> <a href="#">Channels</a>
+      <ul class="hiddenChannels">
+        <li> <a routerLink="channel1">- Channel 1</a> </li>
+        <li> <a routerLink="channel2">- Channel 2</a> </li>
+        <li> <a routerLink="channel3">- Channel 3</a> </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
