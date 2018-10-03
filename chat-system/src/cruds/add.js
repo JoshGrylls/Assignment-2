@@ -2,13 +2,12 @@ module.exports = function(db, app) {
   app.post('/users/add', (req, res, next) => {
     var newProduct = {
       id:req.body.id,
-      username:req.body.name,
-      password:req.body.price,
-      type:req.body.type,
-      description:req.body.description
+      username:req.body.usrName,
+      password:req.body.usrPsw,
+      profileimgpath:req.body.imgPath
     };
 
     db.collection("users").insertOne(newProduct);
-    res.send('Product added successfully');
+    res.send('User added successfully');
   });
 }

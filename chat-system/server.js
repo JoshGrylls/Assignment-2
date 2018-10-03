@@ -23,8 +23,9 @@ MongoClient.connect(url, {useNewUrlParser: true}, function(err, client) {
   require('./socket.js')(app, io);
   require('./src/cruds/uploads.js')(app, formidable);
   require('./src/cruds/create.js')(db);
-  //require('./src/cruds/add.js')(db, app);
+  require('./src/cruds/add.js')(db, app);
   //require('./src/cruds/remove.js')(db, app);
-  //require('./src/cruds/update.js')(db, app);
+  require('./src/cruds/update.js')(db, app);
   require('./src/cruds/read.js')(db, app);
+  require('./src/cruds/getimgpath.js')(db, app);
 });
