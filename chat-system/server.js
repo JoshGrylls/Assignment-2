@@ -13,13 +13,15 @@ MongoClient.connect(url, {useNewUrlParser: true}, function(err, client) {
   const io = require('socket.io').listen(server);
   const dbName = 'users';
   const db = client.db(dbName);
-  //const colName = "users";
+  const formidable = require('formidable');
 
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({extended:false}));
-  app.use(express.static(path.join(__dirname, 'dist/chat-system')));
+  app.use(express.static(path.join(__dirname, './dist/chat-system')));
+  app.use('/images', express.static(path.join(__dirname, './src/assets/images')));
 
   require('./socket.js')(app, io);
+  require('./src/cruds/uploads.js')(app, formidable);
   require('./src/cruds/create.js')(db);
   //require('./src/cruds/add.js')(db, app);
   //require('./src/cruds/remove.js')(db, app);

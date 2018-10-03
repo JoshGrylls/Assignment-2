@@ -1,6 +1,6 @@
 <div>
   <div id="heading">
-    <img src="/assets/images/profileImg.png"/>
+    <img src="images\{{imagepath}}"/>
     <h1>My Account</h1>
     <div id="accInfo">
       <p>Name: {{username}}</p>
@@ -11,7 +11,9 @@
       <p>Date Joined: </p>
     </div>
   </div>
-
+  <button *ngIf="username" (click)="logout()" class="logout">Logout</button>
+  <input type="file" (change)="onFileSelected($event)" name="uploadfile" id="uploadfile"/>
+  <button type="button" (click)="onUpload()">Change Profile Image</button>
   <div id="desc">
     <div id="text">
       <h1>Description</h1>

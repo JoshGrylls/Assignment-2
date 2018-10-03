@@ -1,0 +1,22 @@
+#heading {
+  position: relative;
+  left: 0;
+  width: 100%;
+  height: 310px;
+}
+
+#heading img {
+  float: left;
+  width: 300px;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+#desc {
+  position: relative;
+}
+
+#desc #text {
+  position: relative;
+  padding-left: 10px;
+}
