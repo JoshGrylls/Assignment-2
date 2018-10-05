@@ -13,9 +13,7 @@ export class SocketService {
     this.socket.emit('add-message', message);
   }
   getMessage() {
-    let obmessages = new Observable(
-      //"observale" is a javascript function that defines the handelers for the
-      //notifications that we will recieve
+    let obmessages = new Observable( //handles notifications
       observer => {
       this.socket = io();
       //listen for new-message event from the server
